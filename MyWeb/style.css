@@ -1,0 +1,304 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif;            
+}
+
+#mainContainer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 51px;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-y: auto;
+}
+
+.container-fluid {
+    padding-left: 0px;
+}
+
+.navbar-inverse {
+    background-color: white;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar-collapse {
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 1vw;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#badges > .col-xs-4 {
+    height: 100%;
+    padding: 0px;
+}
+
+#badges > .col-xs-4 > a > img{
+    margin: auto;
+    margin-top: 1px;
+    display: block;
+    height: 94%;
+    padding: 0px;
+}
+
+#github {
+    background-color: white;
+    border-radius: 50%;
+}
+
+#contact-form {
+    color: white;
+    height: 100%;
+    overflow: hidden;
+}
+
+#contact-intro {
+    text-align: center;
+    font-size: 20px;
+}
+
+#badges {
+    height: 34px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 44%;
+    float: right;
+    padding: 0px;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    font-size: 16px;
+    color: black;
+    border-left: 1px solid rgb(218, 218, 218);
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    background-color: gray;
+}
+
+.navbar-inverse .navbar-nav >li>a:focus {
+    color: black;
+    background-color: rgb(221, 221, 221);
+}
+
+.navbar-toggle {
+    background-color: rgb(189, 189, 189);
+    border: 0;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: rgb(0, 0, 0);
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+#leftSide {
+    /* background design: starry night, from http://lea.verou.me/css3patterns/ */
+    background-color:black;
+    background-image:
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    padding-left: 0px;
+    height: 100%;
+    padding-right: 0px;
+    padding-bottom: 5px;
+}
+
+#rightSide {
+    padding-top: 5px;
+    background: url("photos/Portland (2).jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+}
+
+#myImage {
+    position: relative;
+    width: 100%;
+    height: 185.359px;
+    background-image: url("photos/Header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#imageFiller {
+    float: left;
+}
+
+#me {
+    height: 100%;
+    float: right;
+    border-top-left-radius: 40px 50%;
+    border-bottom-left-radius: 40px 50%;
+}
+
+#intro {
+    margin-left: 17%;
+    color: rgb(255, 255, 255);
+    font-size: 3.5vw;
+    line-height: 87px;
+    vertical-align: middle;
+}
+
+#intro:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10;
+    border-top: 2px dashed rgb(163, 163, 163);
+    width: 35%;
+    transform: translateY(-50%);
+}
+
+#about {
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+    padding-bottom: 15px;
+    overflow-y: auto;
+    max-height: 62%;
+}
+
+.page-header {
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 0px;
+}
+
+.list-group-item {
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.list-group-item:hover {
+    opacity: 0.5;
+}
+
+.list-group-item > img {
+    height: 100px;
+    width: 200px;
+    margin: 5px;
+    float: right;
+}
+
+#resume-box {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 10px;
+    width: 90%;  
+    height: 50%;  
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 800px;
+}
+
+.project-brief {
+    margin-left: 10px;
+    float: left;
+    overflow: hidden;
+    max-width: 48%;
+}
+
+#project-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#project-description {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#images {
+    float: left;
+    margin: 10px;
+}
+
+#images > img {
+    height: 100px;
+    width: 200px;
+    display: inline-block;
+    margin: 5px;
+}
+
+@media (max-width: 533px) {
+    #myImage {
+        height: 132px;
+    }
+    #intro {
+        font-size: 6.0vw;
+        line-height: 65px;
+    }
+}
+
+@media (max-width: 991px) {
+    #leftSide {
+        height: auto;
+    }
+    #about {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .project > img{
+        float: none;
+    }
+    .project-info {
+        max-width: none;
+        float: none;
+    }
+}
+
+@media (min-width: 534px) and (max-width: 991px) {
+    #intro {
+        font-size: 50px;
+        line-height: 88px;
+    }
+    #intro:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10;
+        border-top: 2px dashed rgb(163, 163, 163);
+        width: 275px;
+        transform: translateY(-50%);
+    }
+    #myImage {
+        height: 185.359px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-text {
+        margin-left: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
