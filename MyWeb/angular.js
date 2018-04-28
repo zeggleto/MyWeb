@@ -1,17 +1,20 @@
-angular.module('eggsApp', ['ui.bootstrap', 'ngAnimate'])
+angular.module('eggsApp', ['ui.bootstrap'])
     .controller('mainController', function($scope) {
         $scope.leftPage = "about";
         $scope.rightPage = "projects";
+        $scope.navCollapsed = true;
+        $scope.resumeOpen = false;
         $scope.status = {
             isopen: {
                 projects: false,
                 resume: false
             }
         };
-        $scope.navCollapsed = true;
+        
         $scope.largeScreen = function() {
             return (window.innerWidth < 768 ? false : true);
         };
+
         $scope.showLeftTab = function(page) {
             $scope.leftPage = page;
             $scope.navCollapsed = true;
@@ -21,13 +24,17 @@ angular.module('eggsApp', ['ui.bootstrap', 'ngAnimate'])
         $scope.showRightTab = function(page) {
             $scope.rightPage = page;
             $scope.navCollapsed = true;
-            document.getElementById("rightSide").scrollIntoView({behavior: "smooth"});
+            document.getElementById("rightSide").scrollIntoView(true);
         };
 
         $scope.showProject = function(project) {
             $scope.projectIndex = project;
             $scope.showRightTab("projectDetails");
         };
+
+        $scope.getLevel = function(level) {
+            return new Array(level);
+        }
 
         $scope.projects = [
             {
@@ -55,8 +62,71 @@ angular.module('eggsApp', ['ui.bootstrap', 'ngAnimate'])
                 "keep it to just one page, so I used AngularJS.",
                 technologies: "HTML5, CSS3, JavaScript, Bootstrap, AngularJS, PHPMailer",
                 images: [
-                    "photos/thiswebsite.png"
+                    "photos/thiswebsite.png",
+                    "photos/thiswebsite2.png"
                 ]
+            }
+        ];
+
+        $scope.experience = [
+            {
+                name: "Infosys Limited",
+                time: "September 2017 - Present",
+                title: "Associate Software Developer",
+                place: "Cherry Hill, NJ"
+            },
+            {
+                name: "Eli Lilly and Company",
+                time: "Summer 2016",
+                title: "Summer Replacement Student",
+                place: "Indianapolis, IN"
+            },
+            {
+                name: "DIVSYS International, LLC",
+                time: "October 2016 - March 2017",
+                title: "Senior Project",
+                place: "Indianapolis, IN"
+            }
+        ];
+
+        $scope.skills = [
+            {
+                name: "Front-End",
+                languages: [
+                    {
+                        name: "HTML5, CSS3, JavaScript",
+                        level: 4
+                    },
+                    {
+                        name: "AngularJS",
+                        level: 2
+                    },
+                    {
+                        name: "Bootstrap",
+                        level: 2
+                    }
+                ],
+                other: "AJAX, Google Maps API, JSON, XML, " +
+                "IndexedDB"
+            },
+            {
+                name: "Back-End",
+                languages: [
+                    {
+                        name: "C#",
+                        level: 2
+                    },
+                    {
+                        name: "Java",
+                        level: 1
+                    },
+                    {
+                        name: "SQL",
+                        level: 2
+                    }
+                ],
+                other: ".NET Web API, Entity Framework, " +
+                "REST and SOAP Web Services"
             }
         ]
 
