@@ -48,9 +48,9 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 "the one you're using isn't compatible with saving data",
                 technologies: "HTML5, CSS3, JavaScript, Google Maps API, IndexedDB, JSON",
                 images: [
-                    "photos/ustravelmap.png",
-                    "photos/ustravelmap1.png",
-                    "photos/ustravelmap2.png"
+                    "photos/ustravelmap.PNG",
+                    "photos/ustravelmap1.PNG",
+                    "photos/ustravelmap2.PNG"
                 ]
             },
             {
@@ -62,8 +62,8 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 "keep it to just one page, so I used AngularJS.",
                 technologies: "HTML5, CSS3, JavaScript, Bootstrap, AngularJS, PHPMailer",
                 images: [
-                    "photos/thiswebsite.png",
-                    "photos/thiswebsite2.png"
+                    "photos/thiswebsite.PNG",
+                    "photos/thiswebsite2.PNG"
                 ]
             }
         ];
