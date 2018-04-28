@@ -1,5 +1,7 @@
 html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif;            
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #mainContainer {
