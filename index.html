@@ -70,8 +70,8 @@
     </nav>
 
     <div id="mainContainer" class="container-fluid">
-        <div class="row">
-            <div id="leftSide" class="col-md-6  ">
+        <div class="row equal">
+            <div id="leftSide" class="col-md-6">
                 <div id="myImage">
                     <div id="imageFiller">
                         <div id="intro">
@@ -82,7 +82,7 @@
                     </div>
                     <img src="photos/eggs.jpg" id="me">
                 </div>
-                <div id="about" class="tab-animation" ng-show="leftPage === 'about'">
+                <div id="about" ng-show="leftPage === 'about'">
                     <p>
                         <b>Let's see.......</b> I've been working as an associate software developer for Infosys for almost
                         a year now, providing analysis and writing code for custom plugins, scripts, and queries for the
@@ -102,7 +102,7 @@
                         and I believe we can find a way to be able to live among these areas one day, and I would very much
                         like to help out with that!</p>
                 </div>
-                <div id="contact" class="tab-animation" ng-show="leftPage === 'contact'">
+                <div id="contact" ng-show="leftPage === 'contact'">
                     <form id="contact-form" method="post" action="localhost/email.php" role="form">
                         <div class="row">
                             <div class="col-sm-12">

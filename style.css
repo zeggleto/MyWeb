@@ -3,6 +3,7 @@ html, body {
 }
 
 #mainContainer {
+    background-color: gray;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -114,10 +115,11 @@ html, body {
     border-radius: 50%;
 }
 
-#contact-form {
+#contact {
     color: white;
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    margin-bottom: 50px;
 }
 
 #contact-intro {
@@ -179,6 +181,7 @@ html, body {
     color: white;
     height: auto;
     min-height: 100%;
+    overflow-y: auto;
 }
 
 #myImage {
@@ -206,6 +209,7 @@ html, body {
     margin-left: 17%;
     color: rgb(255, 255, 255);
     font-size: 3.5vw;
+    
     line-height: 87px;
     vertical-align: middle;
 }
@@ -223,13 +227,14 @@ html, body {
 #about {
     border-radius: 5px;
     margin: 15px;
+    margin-bottom: 50px;
     padding: 15px;
     color: black;
     font-size: 16px;
     background-color: white;
     padding-bottom: 15px;
+    height: auto;
     overflow-y: auto;
-    max-height: 62%;
 }
 
 .page-header {
@@ -297,6 +302,7 @@ embed {
     border-radius: 4px;
     overflow: hidden;
     margin-top: 10px;
+    margin-bottom: 60px;
 }
 
 #project-description {
@@ -355,14 +361,12 @@ span.glyphicon-star:before {
 
 @media (min-width: 992px) {
     #leftSide, #rightSide {
-        float: none;
-        display: table-cell;
-        vertical-align: top;
+        display: flex;
+        flex-direction: column;
     }
-    #mainContainer > .row {
-        display: table;
-        height: 100%;
-        margin: 0px;
+    #mainContainer > .row.equal {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 @media (max-width: 991px) {
@@ -403,5 +407,11 @@ span.glyphicon-star:before {
 @media (min-width: 768px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
+    }
+}
+
+@media (min-width: 2070px) {
+    #intro {
+        font-size: 75px;
     }
 }
