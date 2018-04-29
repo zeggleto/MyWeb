@@ -3,6 +3,7 @@ html, body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     overflow-y: scroll;
+    height: 100%;
 }
 
 #mainContainer {
