@@ -1,7 +1,7 @@
 angular.module('eggsApp', ['ui.bootstrap'])
     .controller('mainController', function($scope) {
-        $scope.leftPage = "about";
-        $scope.rightPage = "projects";
+        $scope.leftPage = "";
+        $scope.rightPage = "";
         $scope.navCollapsed = true;
         $scope.resumeOpen = false;
         $scope.status = {
@@ -14,6 +14,10 @@ angular.module('eggsApp', ['ui.bootstrap'])
         $scope.largeScreen = function() {
             return (window.innerWidth < 768 ? false : true);
         };
+
+        $scope.openWindow = function() {
+            window.open($scope.projects[$scope.projectIndex].gitLink);
+        }
 
         $scope.showLeftTab = function(page) {
             $scope.leftPage = page;
@@ -51,7 +55,8 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     "photos/ustravelmap.PNG",
                     "photos/ustravelmap1.PNG",
                     "photos/ustravelmap2.PNG"
-                ]
+                ],
+                gitLink: "https://github.com/zeggleto/TravelMap"
             },
             {
                 name: "This Website",
@@ -64,7 +69,8 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 images: [
                     "photos/thiswebsite.PNG",
                     "photos/thiswebsite2.PNG"
-                ]
+                ],
+                gitLink: "https://github.com/zeggleto/zacheggleton.github.io"
             }
         ];
 
@@ -132,4 +138,3 @@ angular.module('eggsApp', ['ui.bootstrap'])
 
         $scope.projectIndex = 0;        
 });
-    
