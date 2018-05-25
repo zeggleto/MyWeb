@@ -1,0 +1,201 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif;            
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    background-color: rgb(180, 180, 180);
+}
+#loading-background {
+    height: 100%;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+#mainContainer {
+    background-color: gray;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 51px;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-y: auto;
+    display: none;
+}
+
+#mainContainer > .row {
+    height: 100%;
+    margin: 0px;
+}
+
+#mainNav {
+    display: none;
+}
+
+#mainNav > .container-fluid {
+    padding-left: 0px;
+}
+
+#centerTab {
+    position: absolute;
+    left: 50%;
+    margin-left: -26px !important;
+    display: block;
+}
+
+.navbar-text {
+    display: none;
+}
+
+#leftName {
+    position: absolute;
+    display: block;
+    right: 60px;
+}
+
+#rightName {
+    position: absolute;
+    display: block;
+    left: 60px;
+}
+
+.myName {
+    height: 100%;
+    padding-top: 5px;
+    font-size: 30px;
+    font-family: Courier New, Courier, monospace
+}
+
+.logo {
+    margin-top: 5px;
+    border: 1px solid black;
+    width: 50px;
+    height: 70px;
+    border-top-left-radius: 50% 60%;
+    border-top-right-radius: 50% 60%;
+    border-bottom-left-radius: 50% 40%;
+    border-bottom-right-radius: 50% 40%;
+    background: rgba(254,254,254,1);
+    background: -moz-linear-gradient(left, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 77%, rgba(209,209,209,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(254,254,254,1)), color-stop(77%, rgba(219,219,219,1)), color-stop(100%, rgba(209,209,209,1)));
+    background: -webkit-linear-gradient(left, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 77%, rgba(209,209,209,1) 100%);
+    background: -o-linear-gradient(left, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 77%, rgba(209,209,209,1) 100%);
+    background: -ms-linear-gradient(left, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 77%, rgba(209,209,209,1) 100%);
+    background: linear-gradient(to right, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 77%, rgba(209,209,209,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1', GradientType=1 );
+}
+
+
+
+.form-group {
+    margin-bottom: 1vw;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#leftSide {
+    padding-left: 0px;
+    min-height: 100%;
+    height: auto;
+    padding-right: 0px;
+    padding-bottom: 5px;
+}
+
+#rightSide {
+    padding-top: 185px;
+    color: white;
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+}
+
+#myImage {
+    position: relative;
+    width: 200%;
+    height: 185.359px;
+}
+
+#imageFiller {
+    float: left;
+}
+
+#me {
+    height: 100%;
+    float: right;
+    border-top-left-radius: 40px 50%;
+    border-bottom-left-radius: 40px 50%;
+}
+
+#intro {
+    margin-left: 17%;
+    color: rgb(255, 255, 255);
+    font-size: 3.5vw;
+    line-height: 87px;
+    vertical-align: middle;
+}
+
+#intro:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10;
+    border-top: 2px dashed rgb(163, 163, 163);
+    width: 20%;
+    transform: translateY(-50%);
+}
+
+@media (max-height: 960px) {
+    #myImage {
+        max-height: 132px;
+    }
+    #intro {
+        line-height: 62px;
+    }
+}
+
+@media (max-width: 533px) {
+    #myImage {
+        height: 132px;
+    }
+    #intro {
+        font-size: 6.0vw;
+        line-height: 65px;
+    }
+}
+
+@media (min-width: 992px) {
+    #leftSide, #rightSide {
+        display: flex;
+        flex-direction: column;
+    }
+    #mainContainer > .row.equal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 991px) {
+    #myImage {
+        width: 100%;
+    }
+}
+
+@media (min-width: 534px) and (max-width: 991px) and (min-height: 959px) {
+    #intro {
+        font-size: 50px;
+        line-height: 88px;
+    }
+    #intro:before{
+        width: 275px;
+    }
+    #myImage {
+        height: 185.359px;
+    }
+}
+
+@media (min-width: 2070px) {
+    #intro {
+        font-size: 75px;
+    }
+}

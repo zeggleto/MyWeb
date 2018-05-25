@@ -1,0 +1,13 @@
+#myImage {
+    background-image: url("photos/Header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainContainer {
+    background: url("photos/Portland(2).JPG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

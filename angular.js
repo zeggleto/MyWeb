@@ -4,6 +4,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
         $scope.rightPage = "";
         $scope.navCollapsed = true;
         $scope.resumeOpen = false;
+        $scope.downloadedResume = false;
         $scope.status = {
             isopen: {
                 projects: false,
@@ -31,6 +32,14 @@ angular.module('eggsApp', ['ui.bootstrap'])
             document.getElementById("rightSide").scrollIntoView(true);
         };
 
+        $scope.loadResume = function() {
+            $scope.resumeOpen = !$scope.resumeOpen;
+            if($scope.downloadedResume) {
+                document.getElementById("digiResu").src = 'documents/Zach_Eggleton_Resume.pdf';
+                $scope.downloadedResume = true;
+            }
+        }
+
         $scope.showProject = function(project) {
             $scope.projectIndex = project;
             $scope.showRightTab("projectDetails");
@@ -38,7 +47,9 @@ angular.module('eggsApp', ['ui.bootstrap'])
 
         $scope.getLevel = function(level) {
             return new Array(level);
-        }
+        };
+
+        $scope.projectIndex = 0;        
 
         $scope.projects = [
             {
@@ -135,6 +146,4 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 "REST and SOAP Web Services"
             }
         ]
-
-        $scope.projectIndex = 0;        
 });
