@@ -5,6 +5,9 @@ angular.module('eggsApp', ['ui.bootstrap'])
         $scope.navCollapsed = true;
         $scope.resumeOpen = false;
         $scope.downloadedResume = false;
+        $scope.badgesLoaded = false;
+        $scope.projectImgsLoaded = false;
+        $scope.detailImgsLoaded = false;
         $scope.status = {
             isopen: {
                 projects: false,
@@ -20,21 +23,44 @@ angular.module('eggsApp', ['ui.bootstrap'])
             window.open($scope.projects[$scope.projectIndex].gitLink);
         }
 
+        $scope.loadImg = function(element, place, link) {
+            var img = document.getElementsByClassName(element)[place];
+            var newImage = new Image();
+            newImage.onload = function () {
+                img.src = this.src;
+            }
+            newImage.src = link;
+        };
+
         $scope.showLeftTab = function(page) {
             $scope.leftPage = page;
             $scope.navCollapsed = true;
+            if($scope.leftPage == "contact") {
+                if(!$scope.badgesLoaded) {
+                    $scope.loadImg("badge", 0, "photos/Facebook.png");
+                    $scope.loadImg("badge", 1, "photos/Github.png");
+                    $scope.loadImg("badge", 2, "photos/LinkedIn.png");
+                }
+            }
             document.getElementById("myImage").scrollIntoView({behavior: "smooth"});
         };
 
         $scope.showRightTab = function(page) {
             $scope.rightPage = page;
             $scope.navCollapsed = true;
+            if($scope.rightPage == "projects") {
+                if(!$scope.projectImgsLoaded) {
+                    for(var i = 0; i < $scope.projects.length; i++) {
+                        $scope.loadImg("sample-image", i, $scope.projects[i].images[0]);
+                    }
+                }
+            }
             document.getElementById("rightSide").scrollIntoView(true);
         };
 
         $scope.loadResume = function() {
             $scope.resumeOpen = !$scope.resumeOpen;
-            if($scope.downloadedResume) {
+            if(!$scope.downloadedResume) {
                 document.getElementById("digiResu").src = 'documents/Zach_Eggleton_Resume.pdf';
                 $scope.downloadedResume = true;
             }
@@ -43,6 +69,11 @@ angular.module('eggsApp', ['ui.bootstrap'])
         $scope.showProject = function(project) {
             $scope.projectIndex = project;
             $scope.showRightTab("projectDetails");
+            if(!$scope.detailImgsLoaded) {
+                for(var i = 0; i < $scope.projects[project].images.length; i++) {
+                    $scope.loadImg("detail-images", i, $scope.projects[project].images[i]);
+                }
+            }
         };
 
         $scope.getLevel = function(level) {

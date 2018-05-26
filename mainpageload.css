@@ -145,12 +145,15 @@ html, body {
     transform: translateY(-50%);
 }
 
-@media (max-height: 960px) {
+@media (max-height: 960px) and (min-width: 992px) {
     #myImage {
         max-height: 132px;
     }
     #intro {
         line-height: 62px;
+    }
+    #rightSide {
+        padding-top: 136px;
     }
 }
 
@@ -178,6 +181,9 @@ html, body {
 @media (max-width: 991px) {
     #myImage {
         width: 100%;
+    }
+    #rightSide {
+        padding-top: 0px;
     }
 }
 

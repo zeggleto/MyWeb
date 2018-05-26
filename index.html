@@ -22,7 +22,7 @@
             <h1 style="margin-left: -40px">Loading...</h1>
         </div>
     </div>
-    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top animate fadeIn">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="navCollapsed = !navCollapsed">
@@ -50,7 +50,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" uib-dropdown is-open="status.isopen.projects">
-                        <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="rightPage = 'projects'">PROJECTS
+                        <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="showRightTab('projects')">PROJECTS
                         </a>
                         <ul class="dropdown-menu" id="projectDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
                             <li role="menuitem" ng-repeat="p in projects">
@@ -59,7 +59,7 @@
                         </ul>
                     </li>
                     <li class="dropdown" uib-dropdown is-open="status.isopen.resume">
-                        <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="rightPage = 'resume'">RESUME
+                        <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="showRightTab('resume')">RESUME
                         </a>
                         <ul class="dropdown-menu" id="resumeDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
                             <li role="menuitem">
@@ -78,7 +78,7 @@
         </div>
     </nav>
 
-    <div id="mainContainer" class="container-fluid">
+    <div id="mainContainer" class="container-fluid animate fadeIn">
         <div class="row equal">
             <div id="leftSide" class="col-md-6">
                 <div id="myImage">
@@ -196,7 +196,7 @@
                                 <p class="page-header" style="font-size: 24px">{{p.name}}</p>
                                 <p>{{p.shortDesc}}</p>
                             </div>
-                            <img ng-src=//:0 id="sample-image" class="img-rounded">
+                            <img ng-src=//:0 class="img-rounded sample-image">
                         </li>
                     </ul>
                 </div>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                         <div id="images">
-                            <img class="img-rounded" ng-repeat="i in projects[projectIndex].images" ng-src=//:0>
+                            <img class="img-rounded detail-images" ng-repeat="i in projects[projectIndex].images" ng-src={{i}}>
                         </div>
                         <button class="btn btn-default" id="gitBtn" ng-click="openWindow()">View in Github</button>
                     </div>
@@ -285,32 +285,20 @@
             document.getElementById("mainContainer").style.display = "block";
             document.getElementById("mainNav").style.display = "block";
             document.getElementById("loading").style.display = "none";
-        }
-            (function () {
-                function loadEggs() {
-                    var eggs = document.getElementById("me");
-                    var newImage = new Image();
-                    newImage.onload = function () {
-                        eggs.src = this.src;
-                    }
-                    newImage.src = "photos/eggs.jpg";
-                }
+        };
 
-                function loadBadge(place, link) {
-                    var badge = document.getElementsByClassName("badge")[place];
-                    var newImage = new Image();
-                    newImage.onload = function () {
-                        badge.src = this.src;
-                    }
-                    newImage.src = link;
-                }
+        var initialize = {};
 
-                loadEggs();
-                loadBadge(0, "photos/Facebook.png");
-                loadBadge(1, "photos/Github.png");
-                loadBadge(2, "photos/LinkedIn.png");
-
-            }());
+        initialize.loadEggs = function() {
+            var eggs = document.getElementById("me");
+            var newImage = new Image();
+            newImage.onload = function () {
+                eggs.src = this.src;
+            }
+            newImage.src = "photos/eggs.jpg";
+        };
+        initialize.loadEggs();
+        
     </script>
     <link rel="preload" href="loadbackground.css" as="style" onload="this.rel='stylesheet'">
 </body>
