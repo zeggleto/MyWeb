@@ -1,7 +1,7 @@
 angular.module('eggsApp', ['ui.bootstrap'])
-    .controller('mainController', function($scope) {
-        $scope.leftPage = "";
-        $scope.rightPage = "";
+    .controller('mainController', function ($scope, $window) {
+        $scope.leftPage = "about";
+        $scope.rightPage = "projects";
         $scope.navCollapsed = true;
         $scope.resumeOpen = false;
         $scope.downloadedResume = false;
@@ -14,16 +14,46 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 resume: false
             }
         };
-        
-        $scope.largeScreen = function() {
+
+        $window.onload = function () {
+            $scope.setDesktopPage();            
+            document.getElementById("mainContainer").style.display = "block";
+            document.getElementById("mainNav").style.display = "block";
+            document.getElementById("loading").style.display = "none";
+
+            var initialize = {};
+
+            initialize.loadEggs = function () {
+                var eggs = document.getElementById("me");
+                var newImage = new Image();
+                newImage.onload = function () {
+                    eggs.src = this.src;
+                }
+                newImage.src = "photos/eggs.jpg";
+            };
+            initialize.loadEggs();
+        }
+
+        $scope.largeScreen = function () {
             return (window.innerWidth < 768 ? false : true);
         };
 
-        $scope.openWindow = function() {
+        $scope.setDesktopPage = function () {
+            if (window.innerWidth > 991) {
+                //Hide intro screen for desktop viewers
+                document.getElementById("about").style.display = "none";                
+                document.getElementById("projects").style.display = "none";                
+            }
+            else
+                //Load Pictures of Projects
+                $scope.showRightTab("projects");
+        }
+
+        $scope.openWindow = function () {
             window.open($scope.projects[$scope.projectIndex].gitLink);
         }
 
-        $scope.loadImg = function(element, place, link) {
+        $scope.loadImg = function (element, place, link) {
             var img = document.getElementsByClassName(element)[place];
             var newImage = new Image();
             newImage.onload = function () {
@@ -32,66 +62,71 @@ angular.module('eggsApp', ['ui.bootstrap'])
             newImage.src = link;
         };
 
-        $scope.showLeftTab = function(page) {
+        $scope.showLeftTab = function (page) {
             $scope.leftPage = page;
             $scope.navCollapsed = true;
-            if($scope.leftPage == "contact") {
-                if(!$scope.badgesLoaded) {
+            if ($scope.leftPage == "contact") {
+                if (!$scope.badgesLoaded) {
                     $scope.loadImg("badge", 0, "photos/Facebook.png");
                     $scope.loadImg("badge", 1, "photos/Github.png");
                     $scope.loadImg("badge", 2, "photos/LinkedIn.png");
                 }
             }
-            document.getElementById("myImage").scrollIntoView({behavior: "smooth"});
+            document.getElementById("myImage").scrollIntoView({ behavior: "smooth" });
+            document.getElementById("about").style.display = "block";     
+            document.getElementById("desktop-intro").style.display = "none";                       
         };
 
-        $scope.showRightTab = function(page) {
+        $scope.showRightTab = function (page) {
             $scope.rightPage = page;
             $scope.navCollapsed = true;
-            if($scope.rightPage == "projects") {
-                if(!$scope.projectImgsLoaded) {
-                    for(var i = 0; i < $scope.projects.length; i++) {
+            if ($scope.rightPage == "projects") {
+                if (!$scope.projectImgsLoaded) {
+                    for (var i = 0; i < $scope.projects.length; i++) {
                         $scope.loadImg("sample-image", i, $scope.projects[i].images[0]);
                     }
                 }
             }
             document.getElementById("rightSide").scrollIntoView(true);
+            document.getElementById("projects").style.display = "block";  
+            document.getElementById("desktop-intro").style.display = "none";                                                 
         };
 
-        $scope.loadResume = function() {
+        $scope.loadResume = function () {
             $scope.resumeOpen = !$scope.resumeOpen;
-            if(!$scope.downloadedResume) {
+            if (!$scope.downloadedResume) {
                 document.getElementById("digiResu").src = 'documents/Zach_Eggleton_Resume.pdf';
                 $scope.downloadedResume = true;
             }
         }
 
-        $scope.showProject = function(project) {
+        $scope.showProject = function (project) {
+            document.getElementById("desktop-intro").style.display = "none";
             $scope.projectIndex = project;
             $scope.showRightTab("projectDetails");
-            if(!$scope.detailImgsLoaded) {
-                for(var i = 0; i < $scope.projects[project].images.length; i++) {
+            if (!$scope.detailImgsLoaded) {
+                for (var i = 0; i < $scope.projects[project].images.length; i++) {
                     $scope.loadImg("detail-images", i, $scope.projects[project].images[i]);
                 }
             }
         };
 
-        $scope.getLevel = function(level) {
+        $scope.getLevel = function (level) {
             return new Array(level);
         };
 
-        $scope.projectIndex = 0;        
+        $scope.projectIndex = 0;
 
         $scope.projects = [
             {
                 name: "Digital Travel Map",
                 shortDesc: "Mark your travels on this map and save them to your browser!",
                 longDesc: "This small program lets you place different markers on the map commemorating " +
-                "your travels across the U.S. Once you've placed your locations on the map, you don't have " + 
-                "to worry about losing your data; it automatically saves your markers inside your web browser! " + 
-                "This program also allows you to download any markers you placed on the map into a .txt file and " +
-                "import it into a different browser, so you're not stuck with just one browser, or you realize " +
-                "the one you're using isn't compatible with saving data",
+                    "your travels across the U.S. Once you've placed your locations on the map, you don't have " +
+                    "to worry about losing your data; it automatically saves your markers inside your web browser! " +
+                    "This program also allows you to download any markers you placed on the map into a .txt file and " +
+                    "import it into a different browser, so you're not stuck with just one browser, or you realize " +
+                    "the one you're using isn't compatible with saving data",
                 technologies: "HTML5, CSS3, JavaScript, Google Maps API, IndexedDB, JSON",
                 images: [
                     "photos/ustravelmap.PNG",
@@ -103,10 +138,10 @@ angular.module('eggsApp', ['ui.bootstrap'])
             {
                 name: "This Website",
                 shortDesc: "Yes, it's black and white. My mind couldn't build cool color formations, so I just gave up",
-                longDesc: "This is my own portfolio of projects and work I have done since college. I built it from " + 
-                "scratch so I could understand web hosting a lot better and use the front-end skills I've been saving " +
-                "for a while. I want it to work on both mobile and desktops, so I used Bootstrap in it, and I wanted to " +
-                "keep it to just one page, so I used AngularJS.",
+                longDesc: "This is my own portfolio of projects and work I have done since college. I built it from " +
+                    "scratch so I could understand web hosting a lot better and use the front-end skills I've been saving " +
+                    "for a while. I want it to work on both mobile and desktops, so I used Bootstrap in it, and I wanted to " +
+                    "keep it to just one page, so I used AngularJS.",
                 technologies: "HTML5, CSS3, JavaScript, Bootstrap, AngularJS, PHPMailer",
                 images: [
                     "photos/thiswebsite.PNG",
@@ -155,7 +190,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     }
                 ],
                 other: "AJAX, Google Maps API, JSON, XML, " +
-                "IndexedDB"
+                    "IndexedDB"
             },
             {
                 name: "Back-End",
@@ -174,7 +209,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     }
                 ],
                 other: ".NET Web API, Entity Framework, " +
-                "REST and SOAP Web Services"
+                    "REST and SOAP Web Services"
             }
         ]
-});
+    });

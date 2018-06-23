@@ -79,6 +79,11 @@
     </nav>
 
     <div id="mainContainer" class="container-fluid animate fadeIn">
+        <div id="desktop-intro">
+            <p>Check out my latest projects!</p>
+            <button class="btn btn-default" ng-click="showProject(0)">TRAVEL MAP</button>
+            <button class="btn btn-default" ng-click="showProject(1)">THIS WEBSITE</button>
+        </div>
         <div class="row equal">
             <div id="leftSide" class="col-md-6">
                 <div id="myImage">
@@ -280,26 +285,6 @@
             </div>
         </div>
     </div>
-    <script async>
-        window.onload = function () {
-            document.getElementById("mainContainer").style.display = "block";
-            document.getElementById("mainNav").style.display = "block";
-            document.getElementById("loading").style.display = "none";
-        };
-
-        var initialize = {};
-
-        initialize.loadEggs = function() {
-            var eggs = document.getElementById("me");
-            var newImage = new Image();
-            newImage.onload = function () {
-                eggs.src = this.src;
-            }
-            newImage.src = "photos/eggs.jpg";
-        };
-        initialize.loadEggs();
-        
-    </script>
     <link rel="preload" href="loadbackground.css" as="style" onload="this.rel='stylesheet'">
 </body>
 

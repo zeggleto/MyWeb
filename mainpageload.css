@@ -145,7 +145,7 @@ html, body {
     transform: translateY(-50%);
 }
 
-@media (max-height: 960px) and (min-width: 992px) {
+@media (max-height: 950px) and (min-width: 992px) {
     #myImage {
         max-height: 132px;
     }
@@ -159,7 +159,7 @@ html, body {
 
 @media (max-width: 533px) {
     #myImage {
-        height: 132px;
+        max-height: 132px;
     }
     #intro {
         font-size: 6.0vw;
@@ -187,16 +187,16 @@ html, body {
     }
 }
 
-@media (min-width: 534px) and (max-width: 991px) and (min-height: 959px) {
+@media (min-width: 534px) and (max-width: 991px) and (min-height: 949px) {
     #intro {
         font-size: 50px;
-        line-height: 88px;
+        line-height: 62px;
     }
     #intro:before{
         width: 275px;
     }
     #myImage {
-        height: 185.359px;
+        max-height: 132px;
     }
 }
 
