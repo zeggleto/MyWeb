@@ -1,7 +1,7 @@
 angular.module('eggsApp', ['ui.bootstrap'])
     .controller('mainController', function ($scope, $window) {
-        $scope.leftPage = "about";
-        $scope.rightPage = "projects";
+        $scope.leftPage = "";
+        $scope.rightPage = "";
         $scope.navCollapsed = true;
         $scope.resumeOpen = false;
         $scope.downloadedResume = false;
@@ -16,7 +16,6 @@ angular.module('eggsApp', ['ui.bootstrap'])
         };
 
         $window.onload = function () {
-            $scope.setDesktopPage();            
             document.getElementById("mainContainer").style.display = "block";
             document.getElementById("mainNav").style.display = "block";
             document.getElementById("loading").style.display = "none";
@@ -37,17 +36,6 @@ angular.module('eggsApp', ['ui.bootstrap'])
         $scope.largeScreen = function () {
             return (window.innerWidth < 768 ? false : true);
         };
-
-        $scope.setDesktopPage = function () {
-            if (window.innerWidth > 991) {
-                //Hide intro screen for desktop viewers
-                document.getElementById("about").style.display = "none";                
-                document.getElementById("projects").style.display = "none";                
-            }
-            else
-                //Load Pictures of Projects
-                $scope.showRightTab("projects");
-        }
 
         $scope.openWindow = function () {
             window.open($scope.projects[$scope.projectIndex].gitLink);
@@ -126,7 +114,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     "to worry about losing your data; it automatically saves your markers inside your web browser! " +
                     "This program also allows you to download any markers you placed on the map into a .txt file and " +
                     "import it into a different browser, so you're not stuck with just one browser, or you realize " +
-                    "the one you're using isn't compatible with saving data",
+                    "the one you're using isn't compatible with saving browser data",
                 technologies: "HTML5, CSS3, JavaScript, Google Maps API, IndexedDB, JSON",
                 images: [
                     "photos/ustravelmap.PNG",

@@ -52,7 +52,7 @@
                     <li class="dropdown" uib-dropdown is-open="status.isopen.projects">
                         <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="showRightTab('projects')">PROJECTS
                         </a>
-                        <ul class="dropdown-menu" id="projectDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
+                        <ul class="dropdown-menu animate fadeIn" id="projectDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
                             <li role="menuitem" ng-repeat="p in projects">
                                 <a href="javascript: void(0)" ng-click="showProject(projects.indexOf(p))">{{p.name}}</a>
                             </li>
@@ -61,7 +61,7 @@
                     <li class="dropdown" uib-dropdown is-open="status.isopen.resume">
                         <a href="javascript: void(0)" id="single-a" class="dropdown-toggle" uib-dropdown-toggle ng-disabled="largeScreen()" ng-click="showRightTab('resume')">RESUME
                         </a>
-                        <ul class="dropdown-menu" id="resumeDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
+                        <ul class="dropdown-menu animate fadeIn" id="resumeDropdown" uib-dropdown-menu role="menu" aria-labelledby="single-a">
                             <li role="menuitem">
                                 <a href="javascript: void(0)" ng-click="showRightTab('resume')">Download</a>
                             </li>
@@ -216,6 +216,10 @@
                         <button class="btn btn-default" ng-click="loadResume()">View</button>
                         <button onclick="window.open('documents/Zach_Eggleton_Resume.pdf')" class="btn btn-default">Open</button>
                     </div>
+                    <div id="resume-contents">
+                        <button ng-click="showRightTab('experience')">Experience</button>
+                        <button ng-click="showRightTab('skills')">Skills</button>
+                    </div>
                     <embed id="digiResu" src="about:blank" ng-show="resumeOpen">
                 </div>
                 <div id="project-details" class="animate fadeIn" ng-show="rightPage === 'projectDetails'">
@@ -225,6 +229,7 @@
                             <div class="col-sm-8">
                                 {{projects[projectIndex].longDesc}}
                             </div>
+                            <br>
                             <div class="col-sm-4">
                                 <b>Technologies:</b> {{projects[projectIndex].technologies}}
                             </div>

@@ -42,7 +42,7 @@
 #desktop-intro {
     z-index: 1000;
     position: absolute;
-    left: 30%;
+    left: 20%;
     top: 30%;
     color: white;
     font-size: 24px;
@@ -74,6 +74,10 @@
     float: right;
 }
 
+#facebook, #linkedin {
+    border-radius: 3px;
+}
+
 #github {
     background-color: white;
     border-radius: 50%;
@@ -93,13 +97,14 @@
 }
 
 #about {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif;                
     border-radius: 5px;
     margin: 15px;
     margin-bottom: 50px;
     padding: 15px;
-    color: white;
+    color: black;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     padding-bottom: 15px;
     height: auto;
     overflow-y: auto;
@@ -116,8 +121,9 @@
 }
 
 .list-group-item {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     overflow: hidden;
+    border: none;
 }
 
 #project-list > .list-group-item:hover {
@@ -134,6 +140,22 @@
 
 .btn-group {
     margin-bottom: 10px;
+}
+
+#resume-contents {
+    float: right;
+}
+
+#resume-contents > button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+#resume-contents > button:hover {
+    opacity: .5;
 }
 
 #downloadParent {
@@ -165,11 +187,10 @@ embed {
 }
 
 #project-box {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #ddd;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 4px;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 60px;
 }
 
@@ -230,8 +251,8 @@ span.glyphicon-star:before {
         max-width: 100%;
         float: left;
     }
-    #sample-image {
-        float: none;
+    .list-group-item > img {
+        float: left;
     }
 }
 
