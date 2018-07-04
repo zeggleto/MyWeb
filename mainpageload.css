@@ -13,6 +13,22 @@ html, body {
     background-color: gainsboro;
 }
 
+#loading > .logo{
+    animation: logo-rotate 2s both infinite;
+}
+@keyframes logo-rotate {
+    0% {
+      transform: rotateY(0);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+  
+
 #mainContainer {
     background-color: gray;
     position: fixed;

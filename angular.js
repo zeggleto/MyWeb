@@ -41,6 +41,10 @@ angular.module('eggsApp', ['ui.bootstrap'])
             window.open($scope.projects[$scope.projectIndex].gitLink);
         }
 
+        $scope.openProject = function () {
+            window.open($scope.projects[$scope.projectIndex].projLink);
+        }
+
         $scope.loadImg = function (element, place, link) {
             var img = document.getElementsByClassName(element)[place];
             var newImage = new Image();
@@ -121,7 +125,8 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     "photos/ustravelmap1.PNG",
                     "photos/ustravelmap2.PNG"
                 ],
-                gitLink: "https://github.com/zeggleto/TravelMap"
+                gitLink: "https://github.com/zeggleto/TravelMap",
+                projLink: "Projects/Travel Map/pMap.html"
             },
             {
                 name: "This Website",
@@ -135,7 +140,8 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     "photos/thiswebsite.PNG",
                     "photos/thiswebsite2.PNG"
                 ],
-                gitLink: "https://github.com/zeggleto/zacheggleton.github.io"
+                gitLink: "https://github.com/zeggleto/zacheggleton.github.io",
+                projLink: "http://zacheggleton.com"
             }
         ];
 
