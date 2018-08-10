@@ -135,7 +135,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                     "scratch so I could understand web hosting a lot better and use the front-end skills I've been saving " +
                     "for a while. I want it to work on both mobile and desktops, so I used Bootstrap in it, and I wanted to " +
                     "keep it to just one page, so I used AngularJS.",
-                technologies: "HTML5, CSS3, JavaScript, Bootstrap, AngularJS, PHPMailer",
+                technologies: "HTML5, CSS3, JavaScript, Bootstrap, AngularJS, PHP",
                 images: [
                     "photos/thiswebsite.PNG",
                     "photos/thiswebsite2.PNG"
@@ -172,7 +172,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                 languages: [
                     {
                         name: "HTML5, CSS3, JavaScript",
-                        level: 4
+                        level: 3
                     },
                     {
                         name: "AngularJS",
@@ -194,7 +194,7 @@ angular.module('eggsApp', ['ui.bootstrap'])
                         level: 2
                     },
                     {
-                        name: "Java",
+                        name: "Python",
                         level: 1
                     },
                     {
